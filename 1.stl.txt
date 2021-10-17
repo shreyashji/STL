@@ -1,0 +1,89 @@
+ #include <iostream>
+using namespace std; // namescape is used to declare inside that or scope ,all function 
+
+inside std
+
+struct node{  //user defined datatype
+	string str;
+	int num;
+	double doub;
+	char x;
+	node(str_, num_, doub_, x_){
+		str =str_;
+		num=num_;
+		doub=doub_;
+		x=x_;
+	}
+}
+int main() {
+	// your code goes here
+	node raj= new node("shreyash", 2,2.3,"")
+	return 0;
+
+	array<int,3> arr; // container {?,?,?}
+	array<int, 5> arr = {1}; // -> {1, 0, 0, 0, 0}
+	arr.fill(10); -> // {10, 10, 10, 10, 10}
+
+	///iterators 
+	//begin()-> starting point,end()->after the last,rbegin()->points to last 
+
+element ,rend()->right before the first
+	
+	for(auto it: arr.begin(); it!=arr.end();it++) {
+		cout << *it << " "; 
+	}
+	//reverse iterator begin from end
+    for(auto it: arr.rbegin(); it>arr.rend();it++) {
+		cout << *it << " "; 
+	}
+ 
+	for(auto it: arr.end() - 1; it>=arr.begin();it--) {
+		cout << *it << " "; 
+	}
+		// for each loop 
+	for(auto it: arr) {
+		cout << it << " "; 
+	}
+
+	string s = "xhegcwe"; 
+	// x h e g c w e 
+	for(auto c:s) {
+		cout << c << " "; 
+	}
+ 
+ //vector = store in linear order dont touch the order
+ int arr[50];
+ 
+	// segmentation fault if you push_back 10^7 times
+ 
+	vector<int> arr; // -> {}
+	cout << arr.size() << endl; // -> print 0 
+	arr.push_back(0); // {0}
+	arr.push_back(2); // {0,2}
+	cout << arr.size() << endl; // -> print 2
+	arr.pop_back(); // {0}
+	cout << arr.size() << endl; // print 1  
+ 
+	arr.push_back(0); // {0,0}
+	arr.push_back(2); // {0,0,2}
+ 
+ 
+	vec.clear(); // --> erase all elements at once {}
+ 
+ 
+	vector<int> vec1(4, 0); // -> {0,0,0,0}
+	vector<int> vec2(4, 10); // -> {10,10,10,10}
+
+	vector<int> raj;
+	raj.push_back(1); // raj.emplace_back(1); // emplace_back takes lesser time than 
+
+	push back 
+	raj.push_back(3); 
+	raj.push_back(2); 
+	raj.push_back(5); // -> {1, 3, 2, 5} 
+ 
+	vector<int> raj1(raj.begin(), raj.begin() + 2);  // -> {1, 3}  
+	
+
+}
+

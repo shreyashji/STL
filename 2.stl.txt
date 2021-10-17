@@ -1,0 +1,254 @@
+ #include <iostream>
+using namespace std; // namescape is used to declare inside that or scope ,all function 
+
+int main(){
+	//2nd day arrays, vector, setmap,set
+	//set is used when question is about unique element find,store
+	//oprations are logerathmic ver very small
+	//given n elements , tell me the no. of unique elements then set comes
+	//set only store unique elements
+	//if not required to store elements in ascending order use unordered set
+	arr[]={2,5,2,1,5} //3 unique element 
+	set<int> st; //set stores in ascending fashion
+	//set to access use iterators set.begin ,set.end
+	int n;
+	cin>>n;
+	for(int i=0;i<n; i++){
+		int x;
+		cin>>x;
+		st.insert(x); //log(n) times
+	}
+	//st -> {1,2,5}
+	//erase functionality
+	st.erase(st.begin()); //st.erase(iterator) st->{2,5}
+	st.erase(st.begin(),st.begin()+2);
+	st.erase(5) //st.erase(key) delt the 5
+
+	set<int> st= {1,5,7,8};
+	auto it=st.find{7};// points to 7, iterator to 7
+	auto it=st.find{9};// if doesnt exist then it=st.end();
+
+	st.emplace(6) ; //faster then insert= st.insert(6);
+
+	set<node> st; // can store anything in  ascending order
+	for(auto it=st.begin() ; it!=st.end(); it++ ){
+		cout<< *it<<"";
+	}
+	for (auto it:st){
+		cout<< it<<endl;
+	}
+
+	st.erase(st.begin(),st.end());// delet the set
+	/*UNORDERED SET */
+	//DOESNT FOLLOW ascending order, can be in any order(element) , same operation
+	unordered_set<int> st;
+	st.insert(2);
+	st.insert(3);
+	st.insert(1);
+	//average time complexite is O(1)
+	//worst case linear in nature O(set size)
+	//if not required to store elements in ascending order use unordered set
+	// if TLE Occurs switch to set
+
+	/*MULTISET */
+	//IT helps to store elements not unique in sorted manner
+	//same operation like above
+	//stores all the elements
+	//stores duplicates also
+	multiset<int> ms;
+	ms.insert(1);
+	ms.insert(1);
+	ms.insert(2);
+	ms.insert(2); //ms.emplace(2);
+	ms.insert(3);
+	//st -> {1,1,2,2,3}
+
+	auto it=ms.find(2);// returns an iterator pointing to the first element of 2 position
+	ms.clear(); //delet the entire set pura set gayab
+	ms.erase(ms.begin(),ms.end()); //delet the entire set
+	//log n in size
+	
+	/*MAP DS */  //store everything in sorted order, 
+	//linearly incresing order abcd based on keys
+	//key value
+	//raj->27
+	//hima->31
+	//sandeep->89
+	//can count also, map only store unique keys
+	//log n time complexity
+	map<string,int> mpp;
+	map["raj"]=27;
+	map["hima"]=31;
+	map["sandeep"]=67;
+	map["raj"]=29; // overwrite 27
+	mpp.emplace("raj",45);
+	mpp.erase("raj"); //mpp.erase(key);
+	mpp.clear(); //clear entire map
+	mpp.erase(mpp.begin(),mpp.begin()+2);//cleans up given range
+	if(mpp.empty()){
+		cout<<"yest it is empty";
+	}
+	mpp.count("raj") //always return 1 as it stores only 1
+
+	unordered_map<int,int> mpp; //doesnt store in any order
+	//unordered_map<pair<int,int>,int> mpp;xxxxxxxxxx cant use pair in unordered map
+	pair<int,int> pr={1,2};
+	pair<pair<int,int>,int> pr ={{1,2},2};
+	cout<<pr.first.second<,endl;
+	pair<pair<int,int>,pair<int,int>> pr={{1,2},{2,4}};
+	cout<<first.first; ->1
+	cout<<second.second; ->4
+
+	vector<pair<int,int>> vec;
+	set<pair<int,int>>st;
+	map<pair<int,int>,int> mpp;
+
+	/**MULTIMAP*/
+	//functions will be same
+	MULTIMAP<STRING,INT> mpp;
+	mpp.emplace("raj",2);
+	mpp.emplace("raj",5);
+	
+	//stack aand Queue // no iterator in stack queue
+	stack<int> s; //lifo ds
+	//pop,top,size,empty,push=emplace
+	st.push(2);
+	st.push(4);
+	st.push(3);
+	st.push(1);
+	cout<< st.top() ; //prints 1
+	st.pop(); //delete the last entered element
+	cout<<st.top(); //prints 3
+	st.pop(); //delete the last entered element
+	cout<<st.top(); //prints 4
+
+	bool flag= st.empty(); //return true if stack is empty or false
+	//delet the entire stack
+	while(!st.empty()){
+		st.pop();
+	}
+	cout<<st.size()<<endl; //no. of elements in the stack
+
+	stack<int> st;
+	cout<<st.top()<<endl; //throw error
+
+	while(!st.empty()){
+	cout<<st.top()<<endl; //will not throw error now
+	}
+
+	/*QUEUE FIFO Operation*/
+	//push,pop,empty,front,size
+	//o(1) all operation
+	queue<int> q;
+	q.push(1);
+	q.push(5);
+	q.push(3);
+	q.push(6);
+	cout<<q.front();//print 1
+	q.pop();
+	cout<<q.front;//print 5
+
+	while(!q.empty()){
+		q.pop();
+		}
+
+	queue<int> q;
+	for(int i=0; i<10; i++){q.push(i);}
+
+	/*PRIORTIY _QUEUE*/ // MOST IMPORTANT DS in stl
+	//uses heapify concept
+	//store all elements in descending order ,max element at top
+	
+	priority_queue<int> pq; //max priority queue
+	pq.push(1);
+	pq.push(5);
+	pq.push(2);
+	pq.push(6); //1,2,5,6
+	cout<<pq.top(); //prints 6
+	pq.pop();
+	cout<<pq.top(); //print 5
+
+	priority_queue<pair<int,int>> pq;
+	pq.push(1,5);
+	pq.push(1,6);
+	pq.push(1,7); //(1,6),(1,5),(1,7) max at top
+
+	//min priority queue using maximum priority queue
+	priority_queue<int> pq;
+	pq.push(-1);
+	pq.push(-5);
+	pq.push(-2);
+	pq.push(-6); 
+	//negation and insert
+	cout<< -1*pq.top()<<endl; //print 1 
+
+	//original min priorty queue is (syntax)
+	//greater means ulta
+	priority_queue<int, vector<int>, greater<int>> pq;
+	pq.push(1);
+	pq.push(5);
+	pq.push(2);
+	pq.push(6);
+	cout<< pq.top() <<endl; //print 1 
+
+	/*DEQUEUE*/ //doubly ended queue
+	dequeue<int> dq;
+	//push_front()
+	//push_back()
+	//pop_front()
+	//pop_back()
+	//begin,end,rbegin,rend
+	//size,clear,empty,at 
+	//better than vector
+
+	/*list*/
+	list<int> ls;
+	//push_front()
+	//push_back()
+	//pop_front()
+	//pop_back()
+	//begin,end,rbegin,rend
+	//size,clear,empty,at 
+	//remove -> O(1);
+	ls.push_front(1);
+	ls.push_front(2);
+	ls.push_front(1);
+	ls.remove(2); //O(1) operation
+
+	//given n elements,print the elements that occur maximum
+	//no. of inputs =5
+	//ip=1,3,3,3,3
+	//op=3
+	int n;
+	cin>>n;
+	int maxi=0;
+	map<int,int> mpp;
+	for(int i=0; i<n;i++){
+		int x;
+		cin>>x;
+		mpp[x]++;
+		if(mpp[x]>mpp[maxi]){
+			maxi=x;
+		}
+	}
+	cout<<maxi<<endl;
+	//given n elements,print all elements in sorted order
+	//input n=6 ,6,6,3,2,3,5
+	//op= 2,3,3,5,6,6
+
+	int n;
+	cin>>n;
+	multiset<int> ms;
+	for(int i=0; i<n; i++)
+	{int x;
+	cin>>x;
+	ms.insert(x);
+	}
+	for(auto it:ms){
+		cout<<it<<endl;
+	}
+//tn nlogn
+
+
+}
+
